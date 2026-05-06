@@ -1,4 +1,4 @@
-import heroImg from "@/assets/mixed-grill-platter.jpg";
+import heroImg from "@/assets/hero-skewers.jpg";
 import mixedImg from "@/assets/family-platter.jpg";
 import shawarmaImg from "@/assets/shawarma-wrap.jpg";
 import quesadillaImg from "@/assets/chicken-quesadilla.jpg";
@@ -17,11 +17,11 @@ const MAPS_EMBED = "https://www.google.com/maps?q=" + encodeURIComponent(ADDRESS
 
 const menu = [
   { name: "Mixed Grill Platter", desc: "Lamb, beef and chicken kabobs over warm pita with grilled vegetables and lemon.", img: platterImg },
-  { name: "Family Feast Tray", desc: "A shareable spread of kabobs, shawarma wraps, fries and fresh greens.", img: mixedImg },
-  { name: "Shawarma Plate", desc: "Hand-shaved shawarma wrapped tight, griddled crisp, served with crinkle fries.", img: shawarmaImg },
-  { name: "Chicken Quesadilla", desc: "Grilled chicken and melted cheese in a sesame flatbread, served with pickles and fries.", img: quesadillaImg },
-  { name: "ALMankal Burger", desc: "Hand-formed patty on a sesame bun with crisp fries on the side.", img: burgerImg },
-  { name: "Shawarma Burrito", desc: "Loaded shawarma burrito griddled golden, served with garlic sauce and salsa.", img: burritoImg },
+  { name: "Almankal Grill Family Platter", desc: "A shareable spread of kabobs, shawarma wraps, fries and fresh greens.", img: mixedImg },
+  { name: "Chicken Shawarma Arabi", desc: "Hand-shaved chicken shawarma wrapped tight, griddled crisp, served with crinkle fries.", img: shawarmaImg },
+  { name: "Italian Chicken", desc: "Grilled chicken and melted cheese in a sesame flatbread, served with pickles and fries.", img: quesadillaImg },
+  { name: "Grilled Beef Burger", desc: "Hand-formed patty on a sesame bun with crisp fries on the side.", img: burgerImg },
+  { name: "Chicken Shawarma", desc: "Loaded chicken shawarma griddled golden, served with garlic sauce and salsa.", img: burritoImg },
 ];
 
 const reviews = [
