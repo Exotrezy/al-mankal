@@ -8,6 +8,7 @@ import platterImg from "@/assets/mixed-grill-platter.jpg";
 import { Button } from "@/components/ui/button";
 import { Phone, MapPin, Clock, Star, Navigation, Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
+import { Reveal } from "@/components/Reveal";
 
 const PHONE = "(313) 358-8207";
 const PHONE_TEL = "+13133588207";
@@ -100,17 +101,25 @@ const Header = () => {
 
 const Hero = () => (
   <section id="top" className="relative min-h-[100svh] flex items-center justify-center overflow-hidden">
-    <img src={heroImg} alt="ALMankal Grill mixed kabob platter with lamb, chicken and beef" className="absolute inset-0 w-full h-full object-cover" width={1920} height={1280} />
+    <img
+      src={heroImg}
+      alt="ALMankal Grill mixed kabob platter with lamb, chicken and beef"
+      className="absolute inset-0 w-full h-full object-cover scale-110 animate-[heroZoom_12s_ease-out_forwards]"
+      width={1920}
+      height={1280}
+    />
     <div className="absolute inset-0 bg-black/60" />
     <div className="relative z-10 container mx-auto px-4 text-center text-white">
-      <p className="text-xs md:text-sm uppercase tracking-[0.3em] text-white/70 mb-5">Charcoal-Fired · Sugar Land, TX</p>
-      <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.05] mb-5 max-w-4xl mx-auto">
+      <p className="text-xs md:text-sm uppercase tracking-[0.3em] text-white/70 mb-5 opacity-0 animate-[fadeUp_0.8s_ease-out_0.1s_forwards]">
+        Charcoal-Fired · Sugar Land, TX
+      </p>
+      <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.05] mb-5 max-w-4xl mx-auto opacity-0 animate-[fadeUp_1s_ease-out_0.3s_forwards]">
         Authentic Middle Eastern flavor, off the grill.
       </h1>
-      <p className="text-base md:text-lg text-white/80 max-w-xl mx-auto mb-8">
+      <p className="text-base md:text-lg text-white/80 max-w-xl mx-auto mb-8 opacity-0 animate-[fadeUp_0.9s_ease-out_0.55s_forwards]">
         Kabobs, shawarma and charcoal-grilled skewers — served fresh from our food truck.
       </p>
-      <div className="flex flex-col sm:flex-row gap-3 justify-center">
+      <div className="flex flex-col sm:flex-row gap-3 justify-center opacity-0 animate-[fadeUp_0.9s_ease-out_0.75s_forwards]">
         <Button asChild size="lg" className="h-12 px-8">
           <a href={MAPS_URL} target="_blank" rel="noopener noreferrer">
             <Navigation className="w-5 h-5 mr-2" />Get Directions
@@ -120,7 +129,7 @@ const Hero = () => (
           <a href={`tel:${PHONE_TEL}`}><Phone className="w-5 h-5 mr-2" />{PHONE}</a>
         </Button>
       </div>
-      <div className="mt-10 flex items-center justify-center gap-3 text-sm text-white/80">
+      <div className="mt-10 flex items-center justify-center gap-3 text-sm text-white/80 opacity-0 animate-[fadeUp_0.9s_ease-out_0.95s_forwards]">
         <Stars rating={5} />
         <span className="font-semibold">4.8</span>
         <span className="text-white/60">· 582 Google reviews</span>
@@ -162,16 +171,16 @@ const MenuSection = () => (
         <p className="text-muted-foreground mt-4 max-w-xl mx-auto">A taste of our most-loved dishes. Most items $10–20.</p>
       </div>
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-        {menu.map((item) => (
-          <article key={item.name} className="group bg-card rounded-xl overflow-hidden border border-border hover:border-primary/40 transition-colors">
+        {menu.map((item, idx) => (
+          <Reveal key={item.name} as="article" delay={idx * 90} className="group bg-card rounded-xl overflow-hidden border border-border hover:border-primary/40 transition-colors">
             <div className="aspect-[4/3] overflow-hidden bg-muted">
-              <img src={item.img} alt={item.name} loading="lazy" width={800} height={600} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <img src={item.img} alt={item.name} loading="lazy" width={800} height={600} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" />
             </div>
             <div className="p-6">
               <h3 className="font-display text-xl font-bold mb-2">{item.name}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
             </div>
-          </article>
+          </Reveal>
         ))}
       </div>
     </div>
@@ -191,11 +200,11 @@ const Reviews = () => (
       </div>
       <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
         {reviews.map((r, i) => (
-          <blockquote key={i} className="bg-white/5 border border-white/10 rounded-xl p-7">
+          <Reveal key={i} as="blockquote" delay={i * 100} className="bg-white/5 border border-white/10 rounded-xl p-7">
             <Stars rating={5} />
             <p className="text-base md:text-lg mt-4 leading-relaxed">"{r.text}"</p>
             <footer className="mt-4 text-sm text-secondary-foreground/70 font-medium">— {r.name}</footer>
-          </blockquote>
+          </Reveal>
         ))}
       </div>
     </div>
